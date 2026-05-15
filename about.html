@@ -21,29 +21,22 @@
         .loader-logo { width: 100px; filter: drop-shadow(0 0 15px #38bdf8); animation: pulse 2s infinite; }
         .loader-bar { width: 200px; height: 2px; background: rgba(56, 189, 248, 0.1); margin-top: 20px; border-radius: 10px; overflow: hidden; }
         .loader-progress { width: 0%; height: 100%; background: #38bdf8; box-shadow: 0 0 15px #38bdf8; animation: load 1.5s forwards; }
-        .loader-text { font-size: 0.7rem; color: #38bdf8; margin-top: 10px; letter-spacing: 3px; font-weight: 900; }
 
-        /* حركات الظهور للمحتوى */
-        .main-content { opacity: 0; transform: scale(0.95) translateY(20px); filter: blur(10px); transition: 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+        /* حركات الظهور */
+        .main-content { opacity: 0; transform: scale(0.95) translateY(20px); filter: blur(10px); transition: 1.2s ease-out; }
         .main-content.loaded { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
 
         .container-box { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
         .accent-blue { color: #38bdf8; }
         
-        /* تصميم الكروت */
-        .sector-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 20px; margin-bottom: 12px; transition: 0.3s; }
-        .sector-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: white; font-weight: 700; }
-        .sector-body { max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
-        .sector-body.active { max-height: 250px; padding: 20px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
-        .info-tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 3px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 900; display: inline-block; margin-bottom: 10px; }
+        .section-title { font-size: 0.7rem; font-weight: 900; letter-spacing: 4px; color: #38bdf8; text-transform: uppercase; margin-bottom: 15px; display: block; text-align: center; opacity: 0.7; }
 
-        /* القبول والتجنيد */
-        .recruitment-section {
-            margin-top: 50px; background: rgba(15, 23, 42, 0.8); border: 2px solid #38bdf8;
-            padding: 30px; border-radius: 30px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.1); text-align: center;
-        }
-        .user-grid { display: grid; grid-template-cols: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; margin-top: 20px; }
-        .user-tag { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.1); padding: 8px; border-radius: 10px; font-size: 0.75rem; color: #cbd5e1; font-family: monospace; }
+        /* الكروت */
+        .item-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 20px; margin-bottom: 12px; transition: 0.3s; overflow: hidden; }
+        .item-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: white; font-weight: 700; background: transparent; border: none; }
+        .item-body { max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
+        .item-body.active { max-height: 300px; padding: 20px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
+        .info-tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 3px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 900; display: inline-block; margin-bottom: 10px; }
 
         @keyframes pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
         @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
@@ -54,102 +47,106 @@
     <div id="loader">
         <img src="Picsart_24-11-05_13-55-12-224.png" class="loader-logo">
         <div class="loader-bar"><div class="loader-progress"></div></div>
-        <div class="loader-text">جارِ التحميل...</div>
+        <div class="loader-text text-[#38bdf8] text-[10px] mt-4 font-black tracking-widest uppercase">System Loading</div>
     </div>
 
     <div class="main-content" id="content">
         <div class="container-box">
-            <div class="text-center mb-10">
-                <span class="accent-blue text-[10px] font-black tracking-[5px] uppercase block mb-2">MOI STRUCTURE</span>
-                <h1 class="text-4xl font-black italic">الهيكل التنظيمي للقطاعات</h1>
-            </div>
-
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s1')">
-                    <span><i class="fa-solid fa-user-ninja ml-3 accent-blue"></i> قوات الأمن الخاصة</span>
+            
+            <span class="section-title">Main Sectors</span>
+            <h1 class="text-3xl font-black italic text-center mb-8">القطاعات الأمنية</h1>
+            
+            <div class="item-card">
+                <button class="item-header" onclick="toggleItem('s1')">
+                    <span><i class="fa-solid fa-shield-halved ml-3 accent-blue"></i> قوات الأمن الخاصة</span>
                     <i class="fa-solid fa-plus text-xs"></i>
                 </button>
-                <div id="s1" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">قوة نخبة متخصصة في مكافحة الإرهاب، وحماية الشخصيات، والتدخل السريع.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">هيثم الاسمري</b></p>
+                <div id="s1" class="item-body">
+                    <span class="info-tag">المهام</span>
+                    <p class="text-sm text-gray-400">مكافحة الإرهاب وحماية كبار الشخصيات. المسوؤل: <b>هيثم الاسمري</b></p>
+                </div>
+            </div>
+            <div class="mt-16">
+                <span class="section-title">Training Courses</span>
+                <h1 class="text-3xl font-black italic text-center mb-8">الدورات </h1>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c1')">
+                        <span><i class="fa-solid fa-building-user ml-3 accent-blue"></i> دورة وكالة وزارة الداخلية</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c1" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">دورة إدارية وقيادية عليا تهدف لتأهيل الكوادر للعمل في المراكز السيادية للوكالة وتطوير المهارات التنظيمية.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">نواف الغامدي</b></p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c2')">
+                        <span><i class="fa-solid fa-medal ml-3 accent-blue"></i> دورة الشؤون العسكرية</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c2" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">تختص بتدريب الأفراد على الأنظمة العسكرية والضبط والربط العسكري وإدارة الشؤون الميدانية للقطاعات.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">عبدالله العتيبي</b></p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c3')">
+                        <span><i class="fa-solid fa-bolt ml-3 accent-blue"></i> دورة الصاعقة</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c3" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">واحدة من أقسى الدورات التدريبية، تهدف لبناء التحمل البدني والنفسي العالي والعمل في الظروف البيئية الصعبة.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">باسل الحربي</b></p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c4')">
+                        <span><i class="fa-solid fa-tower-broadcast ml-3 accent-blue"></i> دورة مركز العمليات</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c4" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">تأهيل المختصين في إدارة الأزمات، والتعامل مع البلاغات الطارئة، والتنسيق بين الوحدات الميدانية والقيادة.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">قصي التميمي</b></p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c5')">
+                        <span><i class="fa-solid fa-magnifying-glass-chart ml-3 accent-blue"></i> دورة التحقيقات</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c5" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">دورة تخصصية في مهارات البحث الجنائي، جمع الأدلة، أساليب التحقيق الحديثة، والتعامل مع مسارح الجريمة.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">نواف القحطاني</b></p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('c6')">
+                        <span><i class="fa-solid fa-crown ml-3 accent-blue"></i> دورة الحرس الملكي</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="c6" class="item-body">
+                        <span class="info-tag">التعريف بالدورة</span>
+                        <p class="text-sm text-gray-400 mb-3">برنامج تدريبي مكثف يركز على مهارات الحماية اللصيقة، حماية المواكب والقصور الملكية، والتشريفات العسكرية.</p>
+                        <p class="text-sm">المسؤول: <b class="accent-blue">نواف الحكمي</b></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s2')">
-                    <span><i class="fa-solid fa-eye ml-3 accent-blue"></i> المباحث</span>
-                    <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-                <div id="s2" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">جهاز استخباراتي يُعنى بحماية الأمن الداخلي ومكافحة التهديدات الداخلية.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">عبدالله السلامة</b></p>
-                </div>
-            </div>
-
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s3')">
-                    <span><i class="fa-solid fa-user-check ml-3 accent-blue"></i> الشرطة العسكرية</span>
-                    <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-                <div id="s3" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">تتولى ضبط النظام العسكري ومراقبة التزام منسوبي الوزارة بالتعليمات.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">براق الشمري</b></p>
-                </div>
-            </div>
-
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s4')">
-                    <span><i class="fa-solid fa-car-on ml-3 accent-blue"></i> دوريات الأمن</span>
-                    <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-                <div id="s4" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">المسؤولة عن الاستجابة الميدانية السريعة للبلاغات وحفظ الأمن داخل المدن.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">هتان الروقي</b></p>
-                </div>
-            </div>
-
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s5')">
-                    <span><i class="fa-solid fa-traffic-light ml-3 accent-blue"></i> الإدارة العامة للمرور</span>
-                    <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-                <div id="s5" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">تنظيم حركة السير وضمان السلامة المرورية في كافة طرق المملكة.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">مفرح عسيري</b></p>
-                </div>
-            </div>
-
-            <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s6')">
-                    <span><i class="fa-solid fa-road ml-3 accent-blue"></i> أمن الطرق</span>
-                    <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-                <div id="s6" class="sector-body">
-                    <span class="info-tag">التعريف بالقطاع</span>
-                    <p class="text-sm text-gray-400 mb-3">حفظ الأمن وتقديم المساعدة على الطرق الخارجية والسريعة بين المدن.</p>
-                    <p class="text-sm">المسؤول: <b class="accent-blue">فهد العتيبي</b></p>
-                </div>
-            </div>
-
-            <div class="recruitment-section">
-                <h2 class="text-2xl font-black italic accent-blue">القبول والتجنيد</h2>
-                <div class="user-grid">
-                    <div class="user-tag">e4bw</div><div class="user-tag">vz_w</div><div class="user-tag">1s2m.</div>
-                    <div class="user-tag">3h8d</div><div class="user-tag">kutlu_x</div><div class="user-tag">nawaf8203</div>
-                    <div class="user-tag">e77w</div><div class="user-tag">0p_a</div><div class="user-tag">xu2662</div>
-                    <div class="user-tag">qjv0</div><div class="user-tag">nawaf8489</div><div class="user-tag">njj6</div>
-                    <div class="user-tag">meshaal0969</div><div class="user-tag">r_rhr</div><div class="user-tag">cx7m</div>
-                    <div class="user-tag">abo_tmem.</div>
-                </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="index.html" class="text-gray-500 text-sm hover:text-white transition"><i class="fa-solid fa-arrow-right ml-2"></i> العودة للرئيسية</a>
+            <div class="text-center mt-16">
+                <a href="index.html" class="text-gray-500 text-xs hover:text-white transition tracking-widest uppercase">
+                    <i class="fa-solid fa-chevron-right ml-2"></i> Return to HQ
+                </a>
             </div>
         </div>
     </div>
@@ -163,9 +160,9 @@
             }, 1800);
         });
 
-        function toggleSector(id) {
+        function toggleItem(id) {
             const body = document.getElementById(id);
-            document.querySelectorAll('.sector-body').forEach(el => { if(el.id !== id) el.classList.remove('active'); });
+            document.querySelectorAll('.item-body').forEach(el => { if(el.id !== id) el.classList.remove('active'); });
             body.classList.toggle('active');
         }
     </script>

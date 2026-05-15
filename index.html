@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #000; color: white; margin: 0; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background: #000; color: white; margin: 0; scroll-behavior: smooth; line-height: 1.6; }
         
         .hero-section {
             height: 100vh;
@@ -19,103 +19,106 @@
         }
 
         .nav-bar {
-            position: fixed; top: 0; width: 100%; padding: 15px;
+            position: fixed; top: 0; width: 100%; padding: 10px 20px;
             background: rgba(0,0,0,0.9); backdrop-filter: blur(15px);
-            display: flex; justify-content: space-around; align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 1px solid #111;
         }
 
-        .nav-link { font-size: 0.85rem; font-weight: 700; color: #888; transition: 0.3s; text-decoration: none; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-link { font-size: 0.9rem; font-weight: 700; color: #888; transition: 0.3s; text-decoration: none; white-space: nowrap; }
         .nav-link:hover { color: #38bdf8; }
 
-        .section-box { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-box { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         
         .info-card {
-            background: #080808; border: 1px solid #151515; padding: 40px 30px;
-            border-radius: 30px; transition: 0.4s; text-align: center; position: relative; overflow: hidden;
+            background: #080808; border: 1px solid #151515; padding: 35px 25px;
+            border-radius: 25px; transition: 0.4s; text-align: center; position: relative; overflow: hidden;
         }
-        .info-card::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: #38bdf8; opacity: 0; transition: 0.3s;
-        }
-        .info-card:hover { border-color: #38bdf8; transform: translateY(-10px); }
-        .info-card:hover::before { opacity: 1; }
-        
-        .info-card i { font-size: 2.8rem; color: #38bdf8; margin-bottom: 25px; }
-
-        footer { padding: 60px 20px; background: #050505; text-align: center; border-top: 1px solid #111; }
+        .info-card i { font-size: 2.5rem; color: #38bdf8; margin-bottom: 20px; }
         
         .text-accent { color: #38bdf8; }
-        .border-accent { border-color: #38bdf8; }
+        .bg-accent { background-color: #38bdf8; }
+
+        /* تعديل السهم ليكون أقرب */
+        .scroll-arrow { margin-top: -20px; } 
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
-        <a href="#about" class="nav-link">عن الوزارة</a>
-        <a href="#sectors" class="nav-link">القطاعات الأمنية</a>
-        <a href="#leaders" class="nav-link">القيادة</a>
-        <img src="Picsart_23-04-10_00-11-59-326.png" class="w-14 drop-shadow-[0_0_8px_rgba(56,189,248,0.3)]" alt="شعار الوزارة">
-        <a href="staff.html" class="nav-link text-accent font-black border border-accent/30 px-4 py-1 rounded-full hover:bg-[#38bdf8] hover:text-black transition">بوابة المنسوبين</a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">عن الوزارة</a>
+            <a href="#sectors" class="nav-link">القطاعات</a>
+            <a href="#leaders" class="nav-link">القيادة</a>
+        </div>
+        
+        <img src="Picsart_23-04-10_00-11-59-326.png" class="h-12 w-auto drop-shadow-[0_0_8px_rgba(56,189,248,0.3)]" alt="Logo">
+        
+        <a href="staff.html" class="text-accent font-bold border border-[#38bdf8]/30 px-5 py-1.5 rounded-full hover:bg-[#38bdf8] hover:text-black transition text-sm">
+            بوابة المنسوبين
+        </a>
     </nav>
 
     <header class="hero-section">
-        <img src="Picsart_24-11-05_13-55-12-224.png" class="w-48 mb-8 drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]">
-        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight italic">وزارة الداخلية</h1>
-        <p class="text-gray-400 max-w-3xl text-xl font-light leading-relaxed">
-            تحقيق الأمن والاستقرار في كافة أنحاء الوطن، ورعاية مصالح المواطنين والمقيمين.
+        <img src="Picsart_24-11-05_13-55-12-224.png" class="w-40 mb-6 drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]">
+        <h1 class="text-5xl md:text-7xl font-black mb-4 tracking-tighter italic">وزارة الداخلية</h1>
+        <p class="text-gray-400 max-w-2xl text-lg font-light">
+            تحقيق الأمن والاستقرار في كافة أنحاء الوطن.
         </p>
-        <a href="#about" class="mt-16 animate-bounce text-accent text-3xl"><i class="fa-solid fa-angles-down"></i></a>
+        <a href="#about" class="scroll-arrow animate-bounce text-[#38bdf8] text-4xl mt-8 inline-block">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </header>
 
     <section id="about" class="section-box">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-black italic">عن الوزارة</h2>
-            <div class="w-24 h-1.5 bg-[#38bdf8] mx-auto mt-6 rounded-full"></div>
+            <div class="w-20 h-1 bg-[#38bdf8] mx-auto mt-4 rounded-full"></div>
         </div>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-gray-300 leading-loose text-lg text-justify">
-                تعتبر وزارة الداخلية المظلة الأمنية الكبرى، حيث تعمل على حفظ النظام العام ومكافحة الجريمة بشتى أنواعها. تلتزم الوزارة بتطوير منظومتها الأمنية لضمان أمان الفرد والمجتمع.
-            </div>
-            <div class="bg-zinc-900/50 p-10 rounded-[40px] border border-zinc-800 backdrop-blur-sm">
-                <h4 class="text-accent text-xl font-bold mb-5 italic"><i class="fa-solid fa-eye ml-2"></i> رؤية الوزارة:</h4>
-                <p class="text-gray-400 text-base leading-relaxed">الريادة في العمل الأمني والخدمي، وتوفير بيئة آمنة تساهم في تحقيق التنمية المستدامة.</p>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <p class="text-gray-300 leading-relaxed text-lg text-justify">
+                تعمل وزارة الداخلية على حفظ النظام العام ومكافحة الجريمة بشتى أنواعها، ملتزمة بتطوير منظومتها الأمنية لضمان أمان الفرد والمجتمع.
+            </p>
+            <div class="bg-zinc-900/50 p-8 rounded-[30px] border border-zinc-800 backdrop-blur-sm">
+                <h4 class="text-[#38bdf8] text-xl font-bold mb-3 italic">رؤية الوزارة:</h4>
+                <p class="text-gray-400 text-sm">الريادة في العمل الأمني والخدمي، وتوفير بيئة آمنة تساهم في تحقيق التنمية المستدامة.</p>
             </div>
         </div>
     </section>
 
     <section id="sectors" class="section-box bg-[#020202] min-w-full">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black italic text-accent">أبرز القطاعات</h2>
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-black italic text-[#38bdf8]">أبرز القطاعات</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="info-card">
                 <i class="fa-solid fa-person-military-pointing"></i>
-                <h3 class="text-2xl font-black mb-4">الأمن العام</h3>
-                <p class="text-gray-500 text-sm">ضبط النظام العام، المرور، والشرطة لخدمة المواطنين ميدانياً.</p>
+                <h3 class="text-2xl font-black mb-3">الأمن العام</h3>
+                <p class="text-gray-500 text-sm">ضبط النظام العام والشرطة لخدمة المواطنين ميدانياً.</p>
             </div>
             <div class="info-card">
                 <i class="fa-solid fa-shield-halved"></i>
-                <h3 class="text-2xl font-black mb-4">الحرس الملكي</h3>
-                <p class="text-gray-500 text-sm">تأمين المقرات الرسمية والقيادات العليا بأقصى درجات الانضباط.</p>
+                <h3 class="text-2xl font-black mb-3">الحرس الملكي</h3>
+                <p class="text-gray-500 text-sm">تأمين المقرات الرسمية والقيادات العليا بانضباط تام.</p>
             </div>
             <div class="info-card">
                 <i class="fa-solid fa-building-columns"></i>
-                <h3 class="text-2xl font-black mb-4">أمن المنشآت</h3>
-                <p class="text-gray-500 text-sm">حماية المواقع الحيوية والصناعية لضمان نمو الوطن.</p>
+                <h3 class="text-2xl font-black mb-3">أمن المنشآت</h3>
+                <p class="text-gray-500 text-sm">حماية المواقع الحيوية لضمان استقرار ونمو الوطن.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="mb-10">
-            <img src="Picsart_23-04-10_00-11-59-326.png" class="w-16 mx-auto mb-6 opacity-40">
-            <div class="inline-flex items-center gap-5 bg-[#0a0a0a] px-8 py-3 rounded-full border border-zinc-900 shadow-xl">
-                <i class="fa-brands fa-discord text-[#5865F2] text-xl"></i>
-                <span class="text-sm text-gray-500">تم التطوير والبرمجة بواسطة: <span class="text-white font-black">D_9z</span></span>
+        <div class="mb-8 text-center">
+            <img src="Picsart_23-04-10_00-11-59-326.png" class="w-14 mx-auto mb-4 opacity-40">
+            <div class="inline-flex items-center gap-4 bg-[#0a0a0a] px-6 py-2 rounded-full border border-zinc-900 shadow-xl">
+                <i class="fa-brands fa-discord text-[#5865F2]"></i>
+                <span class="text-xs text-gray-500">تطوير وبرمجة: <span class="text-white font-black">D_9z</span></span>
             </div>
         </div>
-        <p class="text-[11px] text-gray-700 tracking-[6px] uppercase font-bold">وزارة الداخلية المملكة العربية السعودية © 2026</p>
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold text-center">وزارة الداخلية المملكة العربية السعودية © 2026</p>
     </footer>
 
 </body>

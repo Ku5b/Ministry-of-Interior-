@@ -56,7 +56,7 @@
     <div id="loader">
         <img src="Picsart_24-11-05_13-55-12-224.png" class="loader-logo">
         <div class="loader-bar"><div class="loader-progress"></div></div>
-        <div class="loader-text text-[#38bdf8] text-[10px] mt-4 font-black tracking-widest uppercase">جاري التحميل</div>
+        <div class="loader-text text-[#38bdf8] text-[10px] mt-4 font-black tracking-widest uppercase">Initializing Secure Access</div>
     </div>
 
     <div class="main-content" id="content">
@@ -66,47 +66,100 @@
             <h2 class="text-3xl font-black italic text-center mb-8">القطاعات الأمنية</h2>
             
             <div id="sectors-group">
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s1')"><span><i class="fa-solid fa-user-ninja ml-3 accent-blue"></i> قوات الأمن الخاصة</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s1" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">مكافحة الإرهاب والتدخل السريع. المسؤول: <b class="text-white">هيثم الاسمري</b></p></div>
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s1')">
+                        <span><i class="fa-solid fa-user-ninja ml-3 accent-blue"></i> قوات الأمن الخاصة</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s1" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">هيثم الاسمري</p>
+                        <p class="text-sm text-gray-400">تختص بمكافحة الإرهاب، حماية كبار الشخصيات، والتدخل السريع في العمليات النوعية.</p>
+                    </div>
                 </div>
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s2')"><span><i class="fa-solid fa-eye ml-3 accent-blue"></i> المباحث</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s2" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">حماية الأمن الداخلي. المسؤول: <b class="text-white">عبدالله السلامة</b></p></div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s2')">
+                        <span><i class="fa-solid fa-eye ml-3 accent-blue"></i> المباحث</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s2" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">عبدالله السلامة</p>
+                        <p class="text-sm text-gray-400">جهاز أمني استخباراتي يُعنى بحماية الأمن الداخلي ومواجهة التهديدات الوطنية.</p>
+                    </div>
                 </div>
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s3')"><span><i class="fa-solid fa-user-check ml-3 accent-blue"></i> الشرطة العسكرية</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s3" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">الضبط العسكري للمنسوبين. المسؤول: <b class="text-white">براق الشمري</b></p></div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s3')">
+                        <span><i class="fa-solid fa-user-check ml-3 accent-blue"></i> الشرطة العسكرية</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s3" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">براق الشمري</p>
+                        <p class="text-sm text-gray-400">تُعنى بضبط الضبط العسكري وحماية المنشآت التابعة لوزارة الداخلية.</p>
+                    </div>
                 </div>
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s4')"><span><i class="fa-solid fa-car-on ml-3 accent-blue"></i> دوريات الأمن</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s4" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">الانتشار الميداني السريع. المسؤول: <b class="text-white">هتان الروقي</b></p></div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s4')">
+                        <span><i class="fa-solid fa-car-on ml-3 accent-blue"></i> دوريات الأمن</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s4" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">هتان الروقي</p>
+                        <p class="text-sm text-gray-400">الذراع الميداني للاستجابة للبلاغات الأمنية وحفظ النظام في الأحياء والمدن.</p>
+                    </div>
                 </div>
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s5')"><span><i class="fa-solid fa-traffic-light ml-3 accent-blue"></i> الإدارة العامة للمرور</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s5" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">تنظيم السير والسلامة. المسؤول: <b class="text-white">مفرح عسيري</b></p></div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s5')">
+                        <span><i class="fa-solid fa-traffic-light ml-3 accent-blue"></i> الإدارة العامة للمرور</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s5" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">مفرح عسيري</p>
+                        <p class="text-sm text-gray-400">مسؤولة عن تنظيم حركة السير، السلامة المرورية، وإصدار التراخيص.</p>
+                    </div>
                 </div>
-                <div class="item-card"><button class="item-header" onclick="toggleItem('s6')"><span><i class="fa-solid fa-road ml-3 accent-blue"></i> أمن الطرق</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="s6" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400">أمن الطرق الخارجية والسريعة. المسؤول: <b class="text-white">فهد العتيبي</b></p></div>
+
+                <div class="item-card">
+                    <button class="item-header" onclick="toggleItem('s6')">
+                        <span><i class="fa-solid fa-road ml-3 accent-blue"></i> أمن الطرق</span>
+                        <i class="fa-solid fa-plus text-xs"></i>
+                    </button>
+                    <div id="s6" class="item-body">
+                        <span class="info-tag">القائد المسؤول</span>
+                        <p class="font-bold text-lg mb-2">فهد العتيبي</p>
+                        <p class="text-sm text-gray-400">تختص بحفظ الأمن وتقديم الخدمات على الطرق الخارجية والسريعة بالمملكة.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="mt-16">
                 <span class="section-title">Training Courses</span>
-                <h2 class="text-3xl font-black italic text-center mb-8">الدورات </h2>
+                <h2 class="text-3xl font-black italic text-center mb-8">الدورات التدريبية</h2>
 
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c1')"><span><i class="fa-solid fa-building-user ml-3 accent-blue"></i> دورة وكالة وزارة الداخلية</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c1" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">تأهيل الكوادر للعمل في المراكز السيادية وتطوير المهارات التنظيمية.</p><p class="text-sm">المسؤول: <b class="accent-blue">نواف الغامدي</b></p></div>
+                    <div id="c1" class="item-body"><span class="info-tag">المسؤول: نواف الغامدي</span><p class="text-sm text-gray-400">تطوير المهارات التنظيمية والقيادية للعمل في مراكز الوكالة السيادية.</p></div>
                 </div>
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c2')"><span><i class="fa-solid fa-medal ml-3 accent-blue"></i> دورة الشؤون العسكرية</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c2" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">تدريب الأفراد على الضبط العسكري وإدارة الشؤون الميدانية.</p><p class="text-sm">المسؤول: <b class="accent-blue">عبدالله العتيبي</b></p></div>
+                    <div id="c2" class="item-body"><span class="info-tag">المسؤول: عبدالله العتيبي</span><p class="text-sm text-gray-400">تركز على الضبط والربط العسكري وإدارة الشؤون الميدانية التخصصية.</p></div>
                 </div>
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c3')"><span><i class="fa-solid fa-bolt ml-3 accent-blue"></i> دورة الصاعقة</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c3" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">بناء التحمل البدني والنفسي العالي والعمل في الظروف البيئية الصعبة.</p><p class="text-sm">المسؤول: <b class="accent-blue">باسل الحربي</b></p></div>
+                    <div id="c3" class="item-body"><span class="info-tag">المسؤول: باسل الحربي</span><p class="text-sm text-gray-400">أعلى مستويات التدريب القتالي وبناء التحمل في أقسى الظروف الميدانية.</p></div>
                 </div>
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c4')"><span><i class="fa-solid fa-tower-broadcast ml-3 accent-blue"></i> دورة مركز العمليات</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c4" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">تأهيل المختصين في إدارة الأزمات والتعامل مع البلاغات الطارئة.</p><p class="text-sm">المسؤول: <b class="accent-blue">قصي التميمي</b></p></div>
+                    <div id="c4" class="item-body"><span class="info-tag">المسؤول: قصي التميمي</span><p class="text-sm text-gray-400">إدارة الأزمات والتنسيق اللاسلكي المتقدم بين الوحدات والقيادة.</p></div>
                 </div>
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c5')"><span><i class="fa-solid fa-magnifying-glass-chart ml-3 accent-blue"></i> دورة التحقيقات</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c5" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">تخصصية في البحث الجنائي، جمع الأدلة، وأساليب التحقيق الحديثة.</p><p class="text-sm">المسؤول: <b class="accent-blue">نواف القحطاني</b></p></div>
+                    <div id="c5" class="item-body"><span class="info-tag">المسؤول: نواف القحطاني</span><p class="text-sm text-gray-400">تأهيل المختصين في البحث الجنائي، جمع الأدلة، وأساليب التحقيق الحديثة.</p></div>
                 </div>
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c6')"><span><i class="fa-solid fa-crown ml-3 accent-blue"></i> دورة الحرس الملكي</span><i class="fa-solid fa-plus text-xs"></i></button>
-                    <div id="c6" class="item-body"><span class="info-tag">التعريف</span><p class="text-sm text-gray-400 mb-2">تركيز على الحماية اللصيقة والتشريفات العسكرية وحماية المواكب.</p><p class="text-sm">المسؤول: <b class="accent-blue">نواف الحكمي</b></p></div>
+                    <div id="c6" class="item-body"><span class="info-tag">المسؤول: نواف الحكمي</span><p class="text-sm text-gray-400">تدريب متخصص في حماية الشخصيات الهامة، المرافق الملكية، والتشريفات.</p></div>
                 </div>
             </div>
 

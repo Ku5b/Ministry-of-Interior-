@@ -7,114 +7,165 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #020617; color: #f8fafc; margin: 0; padding: 40px 20px; line-height: 1.6; }
+        body { font-family: 'Cairo', sans-serif; background: #020617; color: #f8fafc; margin: 0; overflow-x: hidden; }
+
+        /* شاشة التحميل (الأفكت) */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #020617; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 9999;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+        }
+        .loader-logo { width: 100px; filter: drop-shadow(0 0 15px #38bdf8); animation: pulse 2s infinite; }
+        .loader-bar { width: 200px; height: 2px; background: rgba(56, 189, 248, 0.1); margin-top: 20px; border-radius: 10px; overflow: hidden; }
+        .loader-progress { width: 0%; height: 100%; background: #38bdf8; box-shadow: 0 0 15px #38bdf8; animation: load 1.5s forwards; }
+        .loader-text { font-size: 0.7rem; color: #38bdf8; margin-top: 10px; letter-spacing: 3px; font-weight: 900; }
+
+        /* حركات الظهور للمحتوى */
+        .main-content { opacity: 0; transform: scale(0.95) translateY(20px); filter: blur(10px); transition: 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+        .main-content.loaded { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+
+        .container-box { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
         .accent-blue { color: #38bdf8; }
-        .silver-text { color: #94a3b8; }
-        .container-box { max-width: 850px; margin: 0 auto; }
         
-        .sector-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 20px; margin-bottom: 12px; overflow: hidden; }
-        .sector-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: transparent; border: none; color: white; font-weight: 700; }
-        .sector-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
-        .sector-body.active { max-height: 800px; padding: 25px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
+        /* تصميم الكروت */
+        .sector-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 20px; margin-bottom: 12px; transition: 0.3s; }
+        .sector-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: white; font-weight: 700; }
+        .sector-body { max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
+        .sector-body.active { max-height: 250px; padding: 20px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
+        .info-tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 3px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 900; display: inline-block; margin-bottom: 10px; }
 
-        /* تصميم قسم القبول والتجنيد البارز */
+        /* القبول والتجنيد */
         .recruitment-section {
-            margin-top: 60px;
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.5));
-            border: 2px solid #38bdf8;
-            border-radius: 30px;
-            padding: 40px 20px;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
-            text-align: center;
+            margin-top: 50px; background: rgba(15, 23, 42, 0.8); border: 2px solid #38bdf8;
+            padding: 30px; border-radius: 30px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.1); text-align: center;
         }
+        .user-grid { display: grid; grid-template-cols: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; margin-top: 20px; }
+        .user-tag { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.1); padding: 8px; border-radius: 10px; font-size: 0.75rem; color: #cbd5e1; font-family: monospace; }
 
-        .user-grid {
-            display: grid;
-            grid-template-cols: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .user-tag {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(56, 189, 248, 0.1);
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            transition: 0.3s;
-            font-family: monospace; /* لجعل المعرفات تبدو تقنية */
-        }
-
-        .user-tag:hover {
-            background: #38bdf8;
-            color: #020617;
-            transform: translateY(-3px);
-        }
-
-        .back-btn { display: inline-block; margin-top: 40px; color: #64748b; font-size: 0.85rem; text-decoration: none; padding: 10px 25px; border: 1px solid #1e293b; border-radius: 12px; transition: 0.3s; }
-        .back-btn:hover { background: #38bdf8; color: #020617; border-color: #38bdf8; }
+        @keyframes pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+        @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
     </style>
 </head>
 <body>
 
-    <div class="container-box">
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-black italic">الهيكل والقطاعات</h1>
-        </div>
+    <div id="loader">
+        <img src="Picsart_24-11-05_13-55-12-224.png" class="loader-logo">
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+        <div class="loader-text">جارِ فحص النظام المركزي...</div>
+    </div>
 
-        <div id="sectors-list">
+    <div class="main-content" id="content">
+        <div class="container-box">
+            <div class="text-center mb-10">
+                <span class="accent-blue text-[10px] font-black tracking-[5px] uppercase block mb-2">MOI STRUCTURE</span>
+                <h1 class="text-4xl font-black italic">الهيكل التنظيمي للقطاعات</h1>
+            </div>
+
             <div class="sector-card">
-                <button class="sector-header" onclick="toggleSector('s4')">
+                <button class="sector-header" onclick="toggleSector('s1')">
                     <span><i class="fa-solid fa-user-ninja ml-3 accent-blue"></i> قوات الأمن الخاصة</span>
                     <i class="fa-solid fa-plus text-xs"></i>
                 </button>
-                <div id="s4" class="sector-body">
-                    <p class="silver-text text-sm">القائد المسؤول: <b>هيثم الاسمري</b></p>
+                <div id="s1" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">قوة نخبة متخصصة في مكافحة الإرهاب، وحماية الشخصيات، والتدخل السريع.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">هيثم الاسمري</b></p>
                 </div>
             </div>
+
+            <div class="sector-card">
+                <button class="sector-header" onclick="toggleSector('s2')">
+                    <span><i class="fa-solid fa-eye ml-3 accent-blue"></i> المباحث</span>
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+                <div id="s2" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">جهاز استخباراتي يُعنى بحماية الأمن الداخلي ومكافحة التهديدات الداخلية.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">عبدالله السلامة</b></p>
+                </div>
             </div>
 
-        <div class="recruitment-section">
-            <div class="inline-block bg-[#38bdf8] text-[#020617] px-6 py-1 rounded-full text-xs font-black mb-4">RECRUITMENT UNIT</div>
-            <h2 class="text-3xl font-black italic mb-2">القبول والتجنيد</h2>
-            <p class="silver-text text-sm">قائمة المتقدمين المسجلين في النظام المركزي للوزارة</p>
-
-            <div class="user-grid">
-                <div class="user-tag">e4bw</div>
-                <div class="user-tag">vz_w</div>
-                <div class="user-tag">1s2m.</div>
-                <div class="user-tag">3h8d</div>
-                <div class="user-tag">kutlu_x</div>
-                <div class="user-tag">nawaf8203</div>
-                <div class="user-tag">e77w</div>
-                <div class="user-tag">0p_a</div>
-                <div class="user-tag">xu2662</div>
-                <div class="user-tag">qjv0</div>
-                <div class="user-tag">nawaf8489</div>
-                <div class="user-tag">njj6</div>
-                <div class="user-tag">meshaal0969</div>
-                <div class="user-tag">r_rhr</div>
-                <div class="user-tag">cx7m</div>
-                <div class="user-tag">abo_tmem.</div>
+            <div class="sector-card">
+                <button class="sector-header" onclick="toggleSector('s3')">
+                    <span><i class="fa-solid fa-user-check ml-3 accent-blue"></i> الشرطة العسكرية</span>
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+                <div id="s3" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">تتولى ضبط النظام العسكري ومراقبة التزام منسوبي الوزارة بالتعليمات.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">براق الشمري</b></p>
+                </div>
             </div>
 
-            <div class="mt-10 pt-6 border-t border-white/5">
-                <p class="text-[10px] text-gray-500 uppercase tracking-widest">جميع الحقوق محفوظة للمديرية العامة للقبول والتجنيد</p>
+            <div class="sector-card">
+                <button class="sector-header" onclick="toggleSector('s4')">
+                    <span><i class="fa-solid fa-car-on ml-3 accent-blue"></i> دوريات الأمن</span>
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+                <div id="s4" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">المسؤولة عن الاستجابة الميدانية السريعة للبلاغات وحفظ الأمن داخل المدن.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">هتان الروقي</b></p>
+                </div>
             </div>
-        </div>
 
-        <div class="text-center">
-            <a href="index.html" class="back-btn"><i class="fa-solid fa-chevron-right ml-2"></i> العودة للرئيسية</a>
+            <div class="sector-card">
+                <button class="sector-header" onclick="toggleSector('s5')">
+                    <span><i class="fa-solid fa-traffic-light ml-3 accent-blue"></i> الإدارة العامة للمرور</span>
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+                <div id="s5" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">تنظيم حركة السير وضمان السلامة المرورية في كافة طرق المملكة.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">مفرح عسيري</b></p>
+                </div>
+            </div>
+
+            <div class="sector-card">
+                <button class="sector-header" onclick="toggleSector('s6')">
+                    <span><i class="fa-solid fa-road ml-3 accent-blue"></i> أمن الطرق</span>
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+                <div id="s6" class="sector-body">
+                    <span class="info-tag">التعريف بالقطاع</span>
+                    <p class="text-sm text-gray-400 mb-3">حفظ الأمن وتقديم المساعدة على الطرق الخارجية والسريعة بين المدن.</p>
+                    <p class="text-sm">المسؤول: <b class="accent-blue">فهد العتيبي</b></p>
+                </div>
+            </div>
+
+            <div class="recruitment-section">
+                <h2 class="text-2xl font-black italic accent-blue">القبول والتجنيد</h2>
+                <div class="user-grid">
+                    <div class="user-tag">e4bw</div><div class="user-tag">vz_w</div><div class="user-tag">1s2m.</div>
+                    <div class="user-tag">3h8d</div><div class="user-tag">kutlu_x</div><div class="user-tag">nawaf8203</div>
+                    <div class="user-tag">e77w</div><div class="user-tag">0p_a</div><div class="user-tag">xu2662</div>
+                    <div class="user-tag">qjv0</div><div class="user-tag">nawaf8489</div><div class="user-tag">njj6</div>
+                    <div class="user-tag">meshaal0969</div><div class="user-tag">r_rhr</div><div class="user-tag">cx7m</div>
+                    <div class="user-tag">abo_tmem.</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="index.html" class="text-gray-500 text-sm hover:text-white transition"><i class="fa-solid fa-arrow-right ml-2"></i> العودة للرئيسية</a>
+            </div>
         </div>
     </div>
 
     <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                document.getElementById('loader').style.visibility = 'hidden';
+                document.getElementById('content').classList.add('loaded');
+            }, 1800);
+        });
+
         function toggleSector(id) {
             const body = document.getElementById(id);
-            const allBodies = document.querySelectorAll('.sector-body');
-            allBodies.forEach(el => { if(el.id !== id) el.classList.remove('active'); });
+            document.querySelectorAll('.sector-body').forEach(el => { if(el.id !== id) el.classList.remove('active'); });
             body.classList.toggle('active');
         }
     </script>

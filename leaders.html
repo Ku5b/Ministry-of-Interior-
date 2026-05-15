@@ -8,94 +8,123 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #000; color: white; padding: 40px 20px; line-height: 1.6; }
-        .gold-text { color: #d4af37; }
-        .leader-section { max-width: 900px; margin: 0 auto; }
+        body { font-family: 'Cairo', sans-serif; background: #020617; color: #f8fafc; margin: 0; padding: 40px 20px; line-height: 1.6; }
         
-        /* كرت القيادة العليا */
+        .accent-blue { color: #38bdf8; } /* أزرق سماوي مشرق للرتب */
+        .silver-text { color: #cbd5e1; } /* فضي للنصوص الثانوية */
+        
+        .leader-section { max-width: 800px; margin: 0 auto; }
+        
+        /* كرت القيادة المطور */
         .main-card { 
-            background: linear-gradient(145deg, #0a0a0a, #050505);
-            border: 1px solid #1a1a1a; padding: 25px; border-radius: 30px; 
-            text-align: center; margin-bottom: 20px; transition: 0.3s;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.1); 
+            padding: 30px; border-radius: 24px; 
+            text-align: center; margin-bottom: 20px; 
+            backdrop-filter: blur(10px);
+            transition: 0.4s ease;
         }
-        .main-card:hover { border-color: #d4af37; transform: translateY(-5px); }
+        .main-card:hover { 
+            border-color: #38bdf8; 
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
         
-        /* شبكة الضباط القياديين */
-        .officer-grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .officer-card { 
-            background: #080808; border: 1px solid #111; padding: 15px; 
-            border-radius: 20px; text-align: center; font-size: 0.9rem;
-        }
+        .title-divider { width: 40px; height: 3px; background: #38bdf8; margin: 12px auto; border-radius: 10px; }
 
-        .title-divider { width: 50px; height: 2px; background: #d4af37; margin: 10px auto; }
-        .back-btn { display: inline-block; margin-top: 40px; color: #444; font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid #222; }
+        /* شبكة الضباط */
+        .officer-grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+        .officer-card { 
+            background: #0f172a; border: 1px solid #1e293b; padding: 20px 10px; 
+            border-radius: 18px; text-align: center;
+        }
+        .officer-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
+
+        .back-btn { 
+            display: inline-block; margin-top: 50px; color: #64748b; 
+            font-size: 0.85rem; text-decoration: none; 
+            padding: 10px 20px; border: 1px solid #1e293b; border-radius: 12px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #1e293b; color: white; }
+
+        /* شعار صغير فوق كل قسم */
+        .section-tag {
+            font-size: 0.7rem; font-weight: 900; color: #334155;
+            text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; display: block;
+        }
     </style>
 </head>
 <body>
 
     <div class="leader-section">
-        <h1 class="text-center text-3xl font-black italic gold-text mb-10 underline decoration-double">الهيكل القيادي للوزارة</h1>
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-black italic mb-2">الهيكل القيادي</h1>
+            <p class="silver-text text-sm uppercase tracking-tighter opacity-60">Ministry of Interior Leadership</p>
+        </div>
 
-        <div class="mb-10">
-            <h2 class="text-center font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">رئاسة مجلس الوزراء</h2>
-            <div class="main-card">
-                <h3 class="text-xl font-black">علي القحطاني</h3>
+        <div class="mb-12 text-center">
+            <span class="section-tag text-center">Executive Leadership</span>
+            <div class="main-card border-t-4 border-t-[#38bdf8]">
+                <h3 class="text-2xl font-black">علي القحطاني</h3>
                 <div class="title-divider"></div>
-                <p class="gold-text text-sm font-bold">رئيس الوزراء</p>
+                <p class="accent-blue font-bold tracking-widest">رئيس الوزراء</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="main-card">
                     <h3 class="text-lg font-black">احمد الحربي</h3>
-                    <p class="gold-text text-xs">نائب رئيس الوزراء</p>
+                    <p class="silver-text text-xs mt-1">نائب رئيس الوزراء</p>
                 </div>
                 <div class="main-card">
                     <h3 class="text-lg font-black">امين الجوبري</h3>
-                    <p class="gold-text text-xs">مستشار رئيس الوزراء</p>
+                    <p class="silver-text text-xs mt-1">مستشار رئيس الوزراء</p>
                 </div>
             </div>
         </div>
 
-        <div class="mb-10">
-            <h2 class="text-center font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">وزارة الداخلية</h2>
+        <div class="mb-12 text-center">
+            <span class="section-tag">Internal Affairs</span>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="main-card border-l-4 border-l-[#d4af37]">
-                    <h3 class="text-lg font-black">إياد البلوي</h3>
-                    <p class="gold-text text-xs italic">وزير الداخلية</p>
+                <div class="main-card" style="background: linear-gradient(to bottom, #1e293b, #0f172a);">
+                    <h3 class="text-xl font-black italic">إياد البلوي</h3>
+                    <p class="accent-blue text-xs font-bold mt-2">وزير الداخلية</p>
                 </div>
                 <div class="main-card">
-                    <h3 class="text-lg font-black">محمد الدوسري</h3>
-                    <p class="gold-text text-xs italic">نائب وزير الداخلية</p>
+                    <h3 class="text-xl font-black italic">محمد الدوسري</h3>
+                    <p class="accent-blue text-xs font-bold mt-2">نائب وزير الداخلية</p>
                 </div>
             </div>
         </div>
 
-        <div class="mb-10">
-            <h2 class="text-center font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs"> الأمن العام</h2>
+        <div class="mb-12 text-center">
+            <span class="section-tag">Public Security</span>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="main-card shadow-lg shadow-[#d4af37]/5">
+                <div class="main-card">
                     <h3 class="text-lg font-black">عبدالله الغامدي</h3>
-                    <p class="gold-text text-xs">مدير الامن العام</p>
+                    <p class="silver-text text-xs mt-1 uppercase">مدير الامن العام</p>
                 </div>
                 <div class="main-card">
                     <h3 class="text-lg font-black">حمزة الزهراني</h3>
-                    <p class="gold-text text-xs">نائب مدير الامن العام</p>
+                    <p class="silver-text text-xs mt-1 uppercase">نائب مدير الامن العام</p>
                 </div>
             </div>
         </div>
 
-        <div class="mb-10">
-            <h2 class="text-center font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">الضباط القياديين</h2>
+        <div class="mb-12 text-center">
+            <span class="section-tag">Command Officers</span>
             <div class="officer-grid">
-                <div class="officer-card"> <h4 class="font-bold">يحيئ العلوي</h4> <p class="gold-text text-[10px]">ضابط قيادي</p> </div>
-                <div class="officer-card"> <h4 class="font-bold">انس العسيري</h4> <p class="gold-text text-[10px]">ضابط قيادي</p> </div>
-                <div class="officer-card"> <h4 class="font-bold">عمر القحطاني</h4> <p class="gold-text text-[10px]">ضابط قيادي</p> </div>
-                <div class="officer-card"> <h4 class="font-bold">محمد الغامدي</h4> <p class="gold-text text-[10px]">ضابط قيادي</p> </div>
-                <div class="officer-card"> <h4 class="font-bold">سلطان السُلمي</h4> <p class="gold-text text-[10px]">ضابط قيادي</p> </div>
+                <div class="officer-card"> <h4>يحيئ العلوي</h4> <p class="accent-blue text-[10px] font-bold">ضابط قيادي</p> </div>
+                <div class="officer-card"> <h4>انس العسيري</h4> <p class="accent-blue text-[10px] font-bold">ضابط قيادي</p> </div>
+                <div class="officer-card"> <h4>عمر القحطاني</h4> <p class="accent-blue text-[10px] font-bold">ضابط قيادي</p> </div>
+                <div class="officer-card"> <h4>محمد الغامدي</h4> <p class="accent-blue text-[10px] font-bold">ضابط قيادي</p> </div>
+                <div class="officer-card"> <h4>سلطان السُلمي</h4> <p class="accent-blue text-[10px] font-bold">ضابط قيادي</p> </div>
             </div>
         </div>
 
         <div class="text-center">
-            <a href="index.html" class="back-btn">العودة للبوابة الرئيسية</a>
+            <a href="index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-right ml-2"></i> العودة للرئيسية
+            </a>
         </div>
     </div>
 

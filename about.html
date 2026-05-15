@@ -9,124 +9,120 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body { font-family: 'Cairo', sans-serif; background: #020617; color: #f8fafc; margin: 0; padding: 40px 20px; line-height: 1.6; }
-        
         .accent-blue { color: #38bdf8; }
         .silver-text { color: #94a3b8; }
-        
         .container-box { max-width: 800px; margin: 0 auto; }
-        
-        /* كرت التعريف الرئيسي */
-        .main-card { 
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(56, 189, 248, 0.1); 
-            padding: 35px; border-radius: 24px; 
-            text-align: center; margin-bottom: 40px; 
-            backdrop-filter: blur(10px);
-        }
-
-        /* كروت القطاعات التفاعلية */
-        .sector-card {
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            transition: 0.4s ease;
-        }
-        
-        .sector-header {
-            width: 100%; padding: 22px; display: flex; 
-            justify-content: space-between; align-items: center;
-            cursor: pointer; background: transparent; border: none;
-            color: white; font-weight: 700; font-size: 1.1rem;
-        }
-
+        .main-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.1); padding: 35px; border-radius: 24px; text-align: center; margin-bottom: 40px; backdrop-filter: blur(10px); }
+        .sector-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 20px; margin-bottom: 12px; overflow: hidden; transition: 0.4s ease; }
+        .sector-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: transparent; border: none; color: white; font-weight: 700; font-size: 1rem; }
         .sector-header:hover { background: rgba(56, 189, 248, 0.05); }
-
-        .sector-body {
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        
+        .sector-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
         .sector-body.active { max-height: 500px; padding: 25px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
-
-        .info-tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: #38bdf8;
-            padding: 5px 15px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .back-btn { 
-            display: inline-block; margin-top: 40px; color: #64748b; 
-            font-size: 0.85rem; text-decoration: none; 
-            padding: 10px 25px; border: 1px solid #1e293b; border-radius: 12px;
-            transition: 0.3s;
-        }
+        .info-tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 12px; border-radius: 6px; font-size: 0.7rem; font-weight: 900; display: inline-block; margin-bottom: 10px; }
+        .back-btn { display: inline-block; margin-top: 40px; color: #64748b; font-size: 0.85rem; text-decoration: none; padding: 10px 25px; border: 1px solid #1e293b; border-radius: 12px; transition: 0.3s; }
         .back-btn:hover { background: #38bdf8; color: #020617; border-color: #38bdf8; }
     </style>
 </head>
 <body>
 
     <div class="container-box">
-        <div class="text-center mb-12">
-            <span class="accent-blue text-xs font-black tracking-[5px] uppercase block mb-2">About the Ministry</span>
-            <h1 class="text-4xl font-black italic">ما هي الوزارة؟</h1>
+        <div class="text-center mb-10">
+            <span class="accent-blue text-xs font-black tracking-[5px] uppercase block mb-2">Internal Affairs Structure</span>
+            <h1 class="text-4xl font-black italic">الهيكل التنظيمي للقطاعات</h1>
         </div>
 
         <div class="main-card">
-            <p class="silver-text text-lg leading-relaxed italic">
-                "تعتبر وزارة الداخلية المظلة الأمنية السيادية، والركيزة الأساسية لحفظ الأمن والاستقرار، ومكافحة الجريمة بكافة أشكالها، لضمان أمان الوطن والمواطن وفق أعلى معايير العدالة والشفافية."
+            <p class="silver-text text-md leading-relaxed">
+                تضم وزارة الداخلية نخبة من القطاعات الأمنية والعسكرية المتخصصة، يعمل كل منها بمهام محددة وتكامل تام لضمان بسط الأمن وفرض النظام في كافة ربوع الوطن.
             </p>
         </div>
 
-        <h2 class="text-center silver-text text-xs font-black tracking-[3px] uppercase mb-8 opacity-50">قطاعات الوزارة</h2>
-
         <div class="sector-card">
-            <button class="sector-header" onclick="toggleSector('s1')">
-                <span><i class="fa-solid fa-shield-halved ml-3 accent-blue"></i> مديرية الأمن العام</span>
+            <button class="sector-header" onclick="toggleSector('s4')">
+                <span><i class="fa-solid fa-user-ninja ml-3 accent-blue"></i> قوات الأمن الخاصة</span>
                 <i class="fa-solid fa-plus text-xs opacity-40"></i>
             </button>
-            <div id="s1" class="sector-body">
-                <span class="info-tag">المهام والمسؤوليات</span>
-                <p class="silver-text text-sm mb-5">مسؤول عن حفظ النظام العام، الوقاية من الجريمة، وتنظيم السير والمرور بكافة مناطق المملكة.</p>
+            <div id="s4" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">قوة نخبة متخصصة في مكافحة الإرهاب، وحماية الشخصيات، والتدخل السريع في العمليات الأمنية النوعية التي تتطلب مهارات قتالية عالية.</p>
                 <div class="border-r-2 border-[#38bdf8] pr-4">
-                    <p class="text-[10px] uppercase font-black opacity-40">المسؤول الحالي</p>
-                    <p class="font-bold text-md">عبدالله الغامدي <span class="accent-blue text-xs">(مدير الأمن العام)</span></p>
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">هيثم الاسمري</p>
                 </div>
             </div>
         </div>
 
         <div class="sector-card">
-            <button class="sector-header" onclick="toggleSector('s2')">
-                <span><i class="fa-solid fa-person-military-to-person ml-3 accent-blue"></i> الحرس الملكي</span>
+            <button class="sector-header" onclick="toggleSector('s9')">
+                <span><i class="fa-solid fa-eye ml-3 accent-blue"></i> المباحث</span>
                 <i class="fa-solid fa-plus text-xs opacity-40"></i>
             </button>
-            <div id="s2" class="sector-body">
-                <span class="info-tag">المهام والمسؤوليات</span>
-                <p class="silver-text text-sm mb-5">تأمين وحماية المقرات الرسمية والقيادات العليا، وضمان أعلى مستويات الحماية والجاهزية القتالية.</p>
+            <div id="s9" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">جهاز استخباراتي وأمني يُعنى بحماية الأمن الداخلي، ومكافحة التجسس، وتتبع التنظيمات الإرهابية، وحماية مؤسسات الدولة.</p>
                 <div class="border-r-2 border-[#38bdf8] pr-4">
-                    <p class="text-[10px] uppercase font-black opacity-40">المسؤول الحالي</p>
-                    <p class="font-bold text-md">يحيئ العلوي <span class="accent-blue text-xs">(ضابط قيادي)</span></p>
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">عبدالله السلامة</p>
                 </div>
             </div>
         </div>
 
         <div class="sector-card">
-            <button class="sector-header" onclick="toggleSector('s3')">
-                <span><i class="fa-solid fa-building-shield ml-3 accent-blue"></i> قوات أمن المنشآت</span>
+            <button class="sector-header" onclick="toggleSector('s5')">
+                <span><i class="fa-solid fa-user-check ml-3 accent-blue"></i> الشرطة العسكرية</span>
                 <i class="fa-solid fa-plus text-xs opacity-40"></i>
             </button>
-            <div id="s3" class="sector-body">
-                <span class="info-tag">المهام والمسؤوليات</span>
-                <p class="silver-text text-sm mb-5">توفير الحماية الأمنية الكاملة للمنشآت البترولية والحيوية والصناعية ضد أي تهديدات محتملة.</p>
+            <div id="s5" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">تُعنى بضبط الضبط العسكري، وحماية المنشآت التابعة للوزارة، ومراقبة التزام العسكريين بالأنظمة والتعليمات العسكرية الرسمية.</p>
                 <div class="border-r-2 border-[#38bdf8] pr-4">
-                    <p class="text-[10px] uppercase font-black opacity-40">المسؤول الحالي</p>
-                    <p class="font-bold text-md">انس العسيري <span class="accent-blue text-xs">(ضابط قيادي)</span></p>
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">براق الشمري</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sector-card">
+            <button class="sector-header" onclick="toggleSector('s6')">
+                <span><i class="fa-solid fa-car-on ml-3 accent-blue"></i> دوريات الأمن</span>
+                <i class="fa-solid fa-plus text-xs opacity-40"></i>
+            </button>
+            <div id="s6" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">الذراع الميداني الأول للاستجابة للبلاغات الأمنية، والانتشار الميداني لحفظ الأمن في الأحياء والمدن على مدار الساعة.</p>
+                <div class="border-r-2 border-[#38bdf8] pr-4">
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">هتان الروقي</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sector-card">
+            <button class="sector-header" onclick="toggleSector('s7')">
+                <span><i class="fa-solid fa-traffic-light ml-3 accent-blue"></i> الإدارة العامة للمرور</span>
+                <i class="fa-solid fa-plus text-xs opacity-40"></i>
+            </button>
+            <div id="s7" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">مسؤولة عن تنظيم حركة السير في الطرقات، وإصدار الرخص، ومباشرة الحوادث المرورية، وضمان سلامة مرتادي الطرق.</p>
+                <div class="border-r-2 border-[#38bdf8] pr-4">
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">مفرح عسيري</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sector-card">
+            <button class="sector-header" onclick="toggleSector('s8')">
+                <span><i class="fa-solid fa-road ml-3 accent-blue"></i> أمن الطرق</span>
+                <i class="fa-solid fa-plus text-xs opacity-40"></i>
+            </button>
+            <div id="s8" class="sector-body">
+                <span class="info-tag">التعريف بالقطاع</span>
+                <p class="silver-text text-sm mb-5">تختص بحفظ الأمن وتقديم الخدمات الإسعافية والتنظيمية على الطرق الخارجية السريعة التي تربط مدن ومناطق المملكة.</p>
+                <div class="border-r-2 border-[#38bdf8] pr-4">
+                    <p class="text-[10px] uppercase font-black opacity-40">القائد المسؤول</p>
+                    <p class="font-bold text-md">فهد العتيبي</p>
                 </div>
             </div>
         </div>
@@ -142,11 +138,7 @@
         function toggleSector(id) {
             const body = document.getElementById(id);
             const allBodies = document.querySelectorAll('.sector-body');
-            
-            allBodies.forEach(el => {
-                if(el.id !== id) el.classList.remove('active');
-            });
-
+            allBodies.forEach(el => { if(el.id !== id) el.classList.remove('active'); });
             body.classList.toggle('active');
         }
     </script>

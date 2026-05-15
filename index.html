@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وزارة الداخلية | البوابة الرسمية</title>
+    <title>وزارة الداخلية | الرئيسية</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #000; color: white; margin: 0; scroll-behavior: smooth; line-height: 1.8; }
+        body { font-family: 'Cairo', sans-serif; background: #000; color: white; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* الهيدر مع توزيع مساحات أفضل */
+        /* الهيدر المحسن والمتباعد */
         .nav-bar {
-            position: fixed; top: 0; width: 100%; padding: 15px 10px;
+            position: fixed; top: 0; width: 100%; padding: 12px 10px;
             background: rgba(0,0,0,0.95); backdrop-filter: blur(15px);
             display: flex; justify-content: space-around; align-items: center;
             z-index: 1000; border-bottom: 1px solid #1a1a1a;
         }
 
-        .nav-link { font-size: 0.75rem; font-weight: 700; color: #666; transition: 0.3s; text-decoration: none; white-space: nowrap; }
-        .nav-link:hover { color: #d4af37; } /* اللون الذهبي */
+        .nav-link { font-size: 0.75rem; font-weight: 700; color: #888; transition: 0.3s; text-decoration: none; white-space: nowrap; }
+        .nav-link:hover { color: #d4af37; }
 
         /* الواجهة الرئيسية */
         .hero-section {
@@ -29,130 +29,60 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
 
-        .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin-bottom: 10px; letter-spacing: -2px; color: white; }
-        .hero-sub { color: #888; font-size: 1rem; max-width: 300px; margin-bottom: 5px; }
+        .hero-title { font-size: clamp(2.8rem, 10vw, 5.5rem); font-weight: 900; margin-bottom: 0px; letter-spacing: -2px; color: white; line-height: 1; }
+        .hero-sub { color: #555; font-size: 0.95rem; margin-top: 10px; font-weight: 700; letter-spacing: 1px; }
 
-        /* تقريب السهم جداً */
+        /* السهم الملتصق بالنص */
         .scroll-arrow { 
-            margin-top: 5px; 
+            margin-top: 15px; 
             color: #d4af37; 
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             animation: bounce 2s infinite;
+            text-decoration: none;
         }
-
-        .info-card {
-            background: #080808; border: 1px solid #111; padding: 30px;
-            border-radius: 25px; transition: 0.4s; text-align: center;
-        }
-        .info-card i { font-size: 2.2rem; color: #d4af37; margin-bottom: 15px; }
 
         .btn-portal {
             font-size: 0.7rem; font-weight: 900; color: #d4af37; 
-            border: 1px solid rgba(212, 175, 55, 0.3); padding: 6px 15px; 
-            border-radius: 50px; transition: 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.4); padding: 7px 18px; 
+            border-radius: 50px; transition: 0.3s; text-decoration: none;
         }
-        .btn-portal:hover { background: #d4af37; color: black; }
+        .btn-portal:hover { background: #d4af37; color: black; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+            40% {transform: translateY(-8px);}
+            60% {transform: translateY(-4px);}
         }
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
-        <a href="#about" class="nav-link">عن الوزارة</a>
-        <a href="#sectors" class="nav-link">القطاعات</a>
+        <a href="about.html" class="nav-link">عن الوزارة</a>
         
-        <img src="Picsart_23-04-10_00-11-59-326.png" class="h-10 w-auto" alt="Logo">
+        <img src="Picsart_23-04-10_00-11-59-326.png" class="h-11 w-auto drop-shadow-[0_0_10px_rgba(212,175,55,0.2)]">
         
-        <a href="#leaders" class="nav-link">القيادة</a>
+        <a href="leaders.html" class="nav-link">القيادة</a>
+        
         <a href="staff.html" class="btn-portal">بوابة المنسوبين</a>
     </nav>
 
     <header class="hero-section">
-        <img src="Picsart_24-11-05_13-55-12-224.png" class="w-36 mb-6 drop-shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-        <h1 class="hero-title italic">وزارة الداخلية</h1>
-        <p class="hero-sub">حفظ الأمن.. أمان الوطن والمواطن</p>
+        <img src="Picsart_24-11-05_13-55-12-224.png" class="w-36 mb-6 drop-shadow-[0_0_25px_rgba(212,175,55,0.25)]">
         
-        <a href="#about" class="scroll-arrow">
+        <h1 class="hero-title italic">وزارة الداخلية</h1>
+        <p class="hero-sub uppercase">أمان الوطن.. مسؤوليتنا</p>
+        
+        <a href="#welcome" class="scroll-arrow">
             <i class="fa-solid fa-chevron-down"></i>
         </a>
     </header>
 
-    <section id="about" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-black italic">عن الوزارة</h2>
-            <div class="w-16 h-1 bg-[#d4af37] mx-auto mt-2"></div>
-        </div>
-        <p class="text-center text-gray-400 text-sm leading-relaxed">
-            تعمل وزارة الداخلية تحت قيادة حكيمة لحماية حدود الوطن وحفظ الأمن الداخلي، مستخدمةً أحدث التقنيات الأمنية والكوادر البشرية المدربة.
-        </p>
-    </section>
-
-    <section id="sectors" class="py-20 px-6 bg-[#030303]">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="info-card">
-                <i class="fa-solid fa-person-military-pointing"></i>
-                <h3 class="font-black text-lg mb-2">الأمن العام</h3>
-                <p class="text-gray-600 text-xs">خدمة المواطن ميدانياً وحفظ النظام العام.</p>
-            </div>
-            <div class="info-card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3 class="font-black text-lg mb-2">الحرس الملكي</h3>
-                <p class="text-gray-600 text-xs">تأمين المقرات والقيادات بأعلى المعايير.</p>
-            </div>
-            <div class="info-card">
-                <i class="fa-solid fa-building-columns"></i>
-                <h3 class="font-black text-lg mb-2">أمن المنشآت</h3>
-                <p class="text-gray-600 text-xs">حماية مكتسبات الوطن ومنشآته الحيوية.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center border-top border-[#111]">
-        <img src="Picsart_23-04-10_00-11-59-326.png" class="w-12 mx-auto mb-4 opacity-30">
-        <div class="inline-block bg-[#0a0a0a] px-5 py-2 rounded-full border border-zinc-900">
-            <span class="text-[10px] text-gray-500 font-bold">برمجة وتطوير: <span class="text-[#d4af37]">D_9z</span></span>
+    <footer style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
+        <div style="display: inline-block; background: #050505; padding: 5px 20px; border-radius: 50px; border: 1px solid #111;">
+             <span style="font-size: 10px; color: #444; font-weight: 900;">MOI SYSTEM • 2026</span>
         </div>
     </footer>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وزارة الداخلية | الرئيسية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        body { font-family: 'Cairo', sans-serif; background: #000; color: white; margin: 0; scroll-behavior: smooth; }
-        .nav-bar { position: fixed; top: 0; width: 100%; padding: 15px 10px; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); display: flex; justify-content: space-around; align-items: center; z-index: 1000; border-bottom: 1px solid #1a1a1a; }
-        .nav-link { font-size: 0.75rem; font-weight: 700; color: #888; transition: 0.3s; text-decoration: none; }
-        .nav-link:hover { color: #d4af37; }
-        .hero-section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin-bottom: 5px; color: white; }
-        .scroll-arrow { margin-top: 5px; color: #d4af37; font-size: 2rem; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
-    </style>
-</head>
-<body>
-    <nav class="nav-bar">
-        <a href="about.html" class="nav-link">عن الوزارة</a>
-        <img src="Picsart_23-04-10_00-11-59-326.png" class="h-10 w-auto">
-        <a href="leaders.html" class="nav-link">القيادة</a>
-    </nav>
-
-    <header class="hero-section">
-        <img src="Picsart_24-11-05_13-55-12-224.png" class="w-36 mb-6">
-        <h1 class="hero-title italic">وزارة الداخلية</h1>
-        <p style="color: #666; font-size: 0.9rem;">أمان الوطن.. مسؤوليتنا</p>
-        <a href="#welcome" class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></a>
-    </header>
-</body>
-</html>
 
 </body>
 </html>

@@ -37,10 +37,10 @@
         .item-body.active { max-height: 400px; padding: 20px; border-top: 1px solid rgba(56, 189, 248, 0.1); }
         
         /* التاغات والقيادة الداخلية */
-        .info-tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 3px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 900; display: inline-block; margin-bottom: 10px; }
-        .leader-box { display: flex; gap: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .leader-box { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
         .leader-role { font-size: 0.75rem; color: #64748b; font-weight: 700; }
-        .leader-name { font-size: 1rem; font-weight: 700; color: #ffffff; }
+        .leader-name { font-size: 1rem; font-weight: 700; color: #ffffff; display: flex; flex-direction: column; }
+        .discord-tag { font-size: 0.75rem; color: #5865F2; font-family: monospace; font-weight: normal; margin-top: 2px; }
 
         /* القبول والتجنيد البارز */
         .recruitment-section {
@@ -78,7 +78,10 @@
                     </button>
                     <div id="s1" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">هيثم الاسمري</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">هيثم الاسمري <span class="discord-tag"><i class="fa-brands fa-discord"></i> xu2662</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role text-sky-400">النائب</div>
                                 <div class="leader-name text-sky-200">عمار العنزي</div>
@@ -95,7 +98,10 @@
                     </button>
                     <div id="s2" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">عبدالله السلامة</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">عبدالله السلامة <span class="discord-tag"><i class="fa-brands fa-discord"></i> eagle99_9</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role">النائب</div>
                                 <div class="leader-name text-gray-500">لا يوجد</div>
@@ -112,7 +118,10 @@
                     </button>
                     <div id="s3" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">براق الشمري</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">براق الشمري <span class="discord-tag"><i class="fa-brands fa-discord"></i> r_rhr</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role text-sky-400">النائب</div>
                                 <div class="leader-name text-sky-200">فهد الحربي</div>
@@ -129,7 +138,10 @@
                     </button>
                     <div id="s4" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">هتان الروقي</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">هتان الروقي <span class="discord-tag"><i class="fa-brands fa-discord"></i> 3h8d</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role">النائب</div>
                                 <div class="leader-name text-gray-500">لا يوجد</div>
@@ -146,7 +158,10 @@
                     </button>
                     <div id="s5" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">مفرح عسيري</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">مفرح عسيري <span class="discord-tag"><i class="fa-brands fa-discord"></i> cx7m</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role text-sky-400">النائب</div>
                                 <div class="leader-name text-sky-200">مشعل الغنام</div>
@@ -163,7 +178,10 @@
                     </button>
                     <div id="s6" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">القائد المسؤول</div><div class="leader-name">فهد العتيبي</div></div>
+                            <div>
+                                <div class="leader-role">القائد المسؤول</div>
+                                <div class="leader-name">فهد العتيبي <span class="discord-tag"><i class="fa-brands fa-discord"></i> kutlu_x</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4">
                                 <div class="leader-role">النائب</div>
                                 <div class="leader-name text-gray-500">لا يوجد</div>
@@ -181,7 +199,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c1')"><span><i class="fa-solid fa-building-user ml-3 accent-blue"></i> دورة وكالة وزارة الداخلية</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c1" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">نواف الغامدي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">نواف الغامدي <span class="discord-tag"><i class="fa-brands fa-discord"></i> nawaf8489</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4"><div class="leader-role">النائب</div><div class="leader-name text-gray-500">لا يوجد</div></div>
                         </div>
                         <p class="text-sm text-gray-400">تتضمن تأهيل الكوادر وتطوير المهارات التنظيمية والقيادية للعمل في مراكز الوكالة السيادية.</p>
@@ -191,7 +212,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c2')"><span><i class="fa-solid fa-medal ml-3 accent-blue"></i> دورة الشؤون العسكرية</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c2" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">عبدالله العتيبي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">عبدالله العتيبي <span class="discord-tag"><i class="fa-brands fa-discord"></i> 0p_a</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4"><div class="leader-role">النائب</div><div class="leader-name text-gray-500">لا يوجد</div></div>
                         </div>
                         <p class="text-sm text-gray-400">تركز على أنظمة الانضباط والربط العسكري وإدارة الشؤون الميدانية المتقدمة.</p>
@@ -201,7 +225,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c7')"><span><i class="fa-solid fa-person-military-to-person ml-3 accent-blue"></i> دورة التدريبات العسكرية</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c7" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">محمد النفيعي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">محمد النفيعي <span class="discord-tag"><i class="fa-brands fa-discord"></i> e4bw</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4"><div class="leader-role text-sky-400">النائب</div><div class="leader-name text-sky-200">سعيدان قرقوش</div></div>
                         </div>
                         <p class="text-sm text-gray-400">برنامج مكثف مختص في التكتيكات العسكرية الميدانية، رفع اللياقة القتالية، واستخدام الأسلحة التخصصية.</p>
@@ -211,7 +238,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c3')"><span><i class="fa-solid fa-bolt ml-3 accent-blue"></i> دورة الصاعقة</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c3" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">باسل الحربي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">باسل الحربي <span class="discord-tag"><i class="fa-brands fa-discord"></i> e77w</span></div>
+                            </div>
                         </div>
                         <p class="text-sm text-gray-400">أعلى مستويات التدريب القتالي وبناء التحمل اللياقي والنفسي الشديد في أقسى الظروف الميدانية.</p>
                     </div>
@@ -220,7 +250,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c4')"><span><i class="fa-solid fa-tower-broadcast ml-3 accent-blue"></i> دورة مركز العمليات</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c4" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">قصي التميمي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">قصي التميمي <span class="discord-tag"><i class="fa-brands fa-discord"></i> k506k</span></div>
+                            </div>
                         </div>
                         <p class="text-sm text-gray-400">إدارة الأزمات، تتبع البلاغات، والتنسيق اللاسلكي والتقني المتقدم بين كافة الوحدات الميدانية والقيادة.</p>
                     </div>
@@ -229,7 +262,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c5')"><span><i class="fa-solid fa-magnifying-glass-chart ml-3 accent-blue"></i> دورة التحقيقات العسكرية</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c5" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">نواف القحطاني</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">نواف القحطاني <span class="discord-tag"><i class="fa-brands fa-discord"></i> abo_tmem.</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4"><div class="leader-role text-sky-400">النائب</div><div class="leader-name text-sky-200">احمد الغامدي</div></div>
                         </div>
                         <p class="text-sm text-gray-400">تأهيل الجانب القانوني والجنائي، مهارات البحث والتحري العسكري، وجمع الأدلة وفحص مسارح القضايا.</p>
@@ -239,7 +275,10 @@
                 <div class="item-card"><button class="item-header" onclick="toggleItem('c6')"><span><i class="fa-solid fa-crown ml-3 accent-blue"></i> دورة الحرس الملكي</span><i class="fa-solid fa-plus text-xs"></i></button>
                     <div id="c6" class="item-body">
                         <div class="leader-box">
-                            <div><div class="leader-role">المسؤول الرئيسي</div><div class="leader-name">نواف الحكمي</div></div>
+                            <div>
+                                <div class="leader-role">المسؤول الرئيسي</div>
+                                <div class="leader-name">نواف الحكمي <span class="discord-tag"><i class="fa-brands fa-discord"></i> nawaf8203</span></div>
+                            </div>
                             <div class="border-r border-white/10 pr-4"><div class="leader-role text-sky-400">النائب</div><div class="leader-name text-sky-200">تركي الغفيلي</div></div>
                         </div>
                         <p class="text-sm text-gray-400">تدريب تخصصي متقدم يركز على أمن وحماية الشخصيات الهامة، المواكب الأمنية، والتشريفات الرسمية.</p>
